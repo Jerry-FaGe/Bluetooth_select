@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}首页{% endblock %}
+
+{% block content %}
+    <div class="layui-row layui-col-space10" style="padding: 0 5px;">
+        <div class="layui-col-md4">
+
+        </div>
+        <div class="layui-col-md4" style="margin-top: 15px">
+            {% for i in list %}
+                <a href="/{{ i }}" class="layui-btn layui-btn-normal layui-btn-fluid" style="margin: 10px">{{ i }}</a>
+            {% else %}
+                <a href="#" class="layui-btn layui-btn-normal layui-btn-fluid" style="margin: 10px">没有数据</a>
+            {% endfor %}
+        </div>
+        <div class="layui-col-md4">
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}

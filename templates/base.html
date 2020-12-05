@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{% block title %}主页{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='layui/css/layui.css') }}">
+    <style type="text/css">
+        div[carousel-item] > * {
+            text-align: center;
+            line-height: 280px;
+            color: #fff;
+        }
+
+        div[carousel-item] > *:nth-child(2n) {
+            background-color: #5FB878;
+        }
+
+        div[carousel-item] > *:nth-child(2n+1) {
+            background-color: #009688;
+        }
+
+        #test2 div[carousel-item] > * {
+            line-height: 120px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">Bluetooth Select</div>
+        <!-- 导航栏 -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">主页</a></li>
+            <li class="layui-nav-item"><a href="">信息查询</a></li>
+            <li class="layui-nav-item"><a href="">信息录入</a></li>
+            <li class="layui-nav-item"><a href="">想不起来了</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:">想起来再写</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:">
+                    <img src="static/img/touxiang.png" class="layui-nav-img">
+                    Jerry_FaGe
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="login.html">退了</a></li>
+        </ul>
+    </div>
+
+    <div style="background-color: #e7e7e7">
+        <!-- 轮播图 -->
+        <div class="layui-carousel" id="test2">
+            <div carousel-item>
+                <div>广告位招租1</div>
+                <div>广告位招租2</div>
+            </div>
+        </div>
+        <!-- 内容主体区域 -->
+        <div>
+            <div class="layui-row">
+                <!-- 3/4 -->
+                <div class="layui-col-md9" style="padding: 0 5px 10px 10px;">
+                    <div class="layui-row grid-demo">
+                        <div class="layui-col-md12">
+                            {% block content %}
+                                这是个父模板
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+                <!-- 1/4 -->
+                <div class="layui-col-md3" style="padding: 10px 10px 10px 5px;">
+                    <div class="layui-row grid-demo grid-demo-bg1">
+                        <div class="layui-col-md12">
+                            <!-- 提示框 -->
+                            <blockquote class="layui-elem-quote">
+                                欢迎 Jerry_FaGe 登录！快退个群给大家看看吧！&nbsp;&nbsp;&nbsp;
+                                <a href="login.html" target="_self" class="layui-btn layui-btn-danger">退群</a>
+                            </blockquote>
+                            <!-- 卡片 -->
+                            <div class="layui-card">
+                                <div class="layui-card-header">最新公告</div>
+                                <div class="layui-card-body">
+                                    ·没啥公告，只是占位的<br>
+                                    ·没啥公告，只是占位的<br>
+                                    ·没啥公告，只是占位的<br>
+                                    ·没啥公告，只是占位的<br>
+                                    ·没啥公告，只是占位的<br>
+                                    ·没啥公告，只是占位的
+                                </div>
+                            </div>
+                            <!-- 广告轮播图 -->
+                            <div class="layui-card">
+                                <div class="layui-card-header">我就想啊</div>
+                                <div class="layui-card-body">
+                                    我<br>
+                                    是<br>
+                                    不<br>
+                                    是<br>
+                                    应<br>
+                                    该<br>
+                                    把<br>
+                                    广<br>
+                                    告<br>
+                                    位<br>
+                                    放<br>
+                                    这
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="{{ url_for('static',filename='layui/layui.all.js') }}"></script>
+<!-- 轮播图JS -->
+<script type="text/javascript">
+    layui.use('carousel', function () {
+        var carousel = layui.carousel;
+        carousel.render({
+            elem: '#test2'
+            , interval: 2400
+            //,full: true
+            , anim: 'fade'
+            , height: '120px'
+            , width: '100%'
+        });
+    });
+</script>
+
+{% block js %}{% endblock %}
+
+</body>
